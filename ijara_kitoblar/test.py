@@ -13,7 +13,7 @@ print()
 # 1. Config test
 print("1️⃣ Config...")
 try:
-    from config import DATABASE_URL, BOT_TOKEN
+    from ijara_kitoblar.config import DATABASE_URL, BOT_TOKEN
     print("   ✅ config.py OK")
     print(f"   📊 DATABASE_URL: {DATABASE_URL[:30]}...")
 except Exception as e:

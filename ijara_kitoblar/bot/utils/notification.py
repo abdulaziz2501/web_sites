@@ -3,7 +3,7 @@ Notification Utils - Bildirishnomalar yuborish
 """
 import asyncio
 from datetime import datetime, timedelta
-from database.db_manager import DatabaseManager
+from ijara_kitoblar.database.db_manager import DatabaseManager
 import logging
 
 logger = logging.getLogger(__name__)
@@ -179,7 +179,7 @@ async def send_notification_to_admins(bot, message: str):
         message: Yuborish uchun xabar
     """
     try:
-        from database.admin_manager import AdminManager
+        from ijara_kitoblar.database.admin_manager import AdminManager
         
         admin_manager = AdminManager()
         admins = admin_manager.get_all_admins()

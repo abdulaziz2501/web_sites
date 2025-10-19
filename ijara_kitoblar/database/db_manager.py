@@ -9,8 +9,8 @@ from datetime import datetime, timedelta
 from typing import Optional, Tuple, List
 import logging
 
-from .models import Base, User, Admin
-from config import DATABASE_URL, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
+from ijara_kitoblar.database.models import Base, User
+from ijara_kitoblar.config import DATABASE_URL, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
 
 logger = logging.getLogger(__name__)
 
@@ -145,6 +145,25 @@ class DatabaseManager:
             return user
         finally:
             session.close()
+
+    def add_user(self, library_id, full_name, phone_number=None, telegram_id=None):
+        session = self.Session()
+        try:
+            new_user = User(
+                library_id=library_id,
+                full_name=full_name,
+                phone_number=phone_number,
+                telegram_id=telegram_id
+            )
+            session.add(new_user)
+            session.commit()  # <-- MUHIM
+            print("✅ User added successfully")
+        except Exception as e:
+            session.rollback()
+            print("❌ Error adding user:", e)
+        finally:
+            session.close()
+
 
     def get_user_by_telegram_id(self, telegram_id: int) -> Optional[User]:
         """Telegram ID bo'yicha foydalanuvchi topish"""
@@ -398,6 +417,7 @@ class DatabaseManager:
         finally:
             session.close()
 
+
     def close(self):
         """Engine ni yopish"""
         self.engine.dispose()
@@ -407,6 +427,6 @@ class DatabaseManager:
 # Test uchun
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    db_manager = DatabaseManager()
+    db = DatabaseManager()
     print("✅ PostgreSQL Database Manager test muvaffaqiyatli!")
-    db_manager.close()
+    db.close()

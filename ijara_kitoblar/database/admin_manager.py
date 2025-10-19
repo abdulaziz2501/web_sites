@@ -6,11 +6,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.pool import QueuePool
 from typing import List, Optional, Tuple
-from datetime import datetime
 import logging
 
-from .models import Base, Admin
-from config import DATABASE_URL, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
+from ijara_kitoblar.database.models import Base, Admin
+from ijara_kitoblar.config import DATABASE_URL, POOL_SIZE, MAX_OVERFLOW, POOL_TIMEOUT, POOL_RECYCLE
 
 logger = logging.getLogger(__name__)
 

@@ -6,7 +6,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime, timedelta
+from datetime import datetime
 import sys
 import os
 
@@ -14,7 +14,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from database.db_manager import DatabaseManager
 from database.admin_manager import AdminManager
-from config import SUBSCRIPTION_PLANS
+from ijara_kitoblar.config import SUBSCRIPTION_PLANS
 
 # Sahifa konfiguratsiyasi
 st.set_page_config(

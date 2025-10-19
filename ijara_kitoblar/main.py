@@ -8,11 +8,11 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 
-from config import BOT_TOKEN, SUPER_ADMIN_ID
+from ijara_kitoblar.config import BOT_TOKEN, SUPER_ADMIN_ID
 from bot.handlers import registration, subscription, admin
 from bot.utils.notification import send_expiry_warnings, check_expired_subscriptions
-from database.admin_manager import AdminManager
-from database.db_manager import DatabaseManager
+from ijara_kitoblar.database.admin_manager import AdminManager
+from ijara_kitoblar.database.db_manager import DatabaseManager
 
 # Logging sozlash
 logging.basicConfig(

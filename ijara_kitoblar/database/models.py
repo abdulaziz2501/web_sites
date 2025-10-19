@@ -144,7 +144,7 @@ CREATE INDEX idx_notifications_sent_date ON notifications(sent_date);
 
 if __name__ == "__main__":
     from sqlalchemy import create_engine
-    from config import DATABASE_URL
+    from ijara_kitoblar.config import DATABASE_URL
 
     # Test - jadvallarni yaratish
     engine = create_engine(DATABASE_URL, echo=True)

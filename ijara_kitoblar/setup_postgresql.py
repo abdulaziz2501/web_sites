@@ -12,7 +12,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 # Loyiha root directory ni PATH ga qo'shish
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from config import POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
+from ijara_kitoblar.config import POSTGRES_HOST, POSTGRES_PORT, POSTGRES_DB, POSTGRES_USER, POSTGRES_PASSWORD
 from database.models import Base
 from sqlalchemy import create_engine
 
@@ -76,7 +76,7 @@ def create_database():
 def create_tables():
     """Jadvallarni yaratish (SQLAlchemy orqali)"""
     try:
-        from config import DATABASE_URL
+        from ijara_kitoblar.config import DATABASE_URL
 
         engine = create_engine(DATABASE_URL, echo=False)
         Base.metadata.create_all(engine)
