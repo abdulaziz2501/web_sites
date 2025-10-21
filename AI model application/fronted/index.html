@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YOLOv8 Real-Time Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🎯 YOLOv8 Detector</h1>
+        <div class="status" id="status">
+            <span class="status-dot offline"></span>
+            <span id="statusText">Serverga ulanishni kutmoqda...</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Kamera va Canvas container -->
+        <div class="video-container">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas"></canvas>
+            
+            <!-- Detection results overlay -->
+            <div class="overlay" id="overlay"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="startBtn" class="btn btn-primary">
+                📷 Kamerani Yoqish
+            </button>
+            <button id="stopBtn" class="btn btn-secondary" disabled>
+                ⏹️ To'xtatish
+            </button>
+            <button id="switchCamera" class="btn btn-secondary" disabled>
+                🔄 Kamerani Almashtirish
+            </button>
+        </div>
+
+        <!-- Settings -->
+        <div class="settings">
+            <div class="setting-item">
+                <label for="fpsSlider">FPS (Detection Speed):</label>
+                <input type="range" id="fpsSlider" min="1" max="30" value="10">
+                <span id="fpsValue">10</span>
+            </div>
+            
+            <div class="setting-item">
+                <label for="confidenceSlider">Confidence Threshold:</label>
+                <input type="range" id="confidenceSlider" min="0" max="100" value="25">
+                <span id="confidenceValue">0.25</span>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Aniqlangan obyektlar:</span>
+                <span class="stat-value" id="objectCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">FPS:</span>
+                <span class="stat-value" id="actualFps">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Latency:</span>
+                <span class="stat-value" id="latency">0ms</span>
+            </div>
+        </div>
+
+        <!-- Detected Objects List -->
+        <div class="detections-list">
+            <h3>Aniqlangan Obyektlar:</h3>
+            <div id="detectionsList"></div>
+        </div>
+
+        <!-- Server Info -->
+        <div class="server-info">
+            <h3>Server Ma'lumotlari:</h3>
+            <div id="serverInfo">
+                <p>Server IP: <span id="serverIp">yuklanmoqda...</span></p>
+                <p>Model: <span id="modelName">YOLOv8</span></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>💡 Maslahat: Telefon va laptop bir xil Wi-Fi tarmog'ida bo'lishi kerak</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
