@@ -1,0 +1,41 @@
+# Speech-to-Text Model - CPU Optimized
+# Bu kutubxonalar CPU da ishlash uchun optimallashtirilgan
+
+# Ma'lumotlar bilan ishlash
+pandas==2.1.4
+numpy==1.24.3
+pyarrow==14.0.1  # Parquet fayllar uchun
+
+# Audio qayta ishlash
+librosa==0.10.1
+soundfile==0.12.1
+audioread==3.0.1
+
+# Machine Learning (CPU optimized)
+torch==2.1.2+cpu  # PyTorch CPU versiyasi
+torchaudio==2.1.2+cpu
+transformers==4.36.2  # Hugging Face Transformers
+
+# Dataset va tokenizer
+datasets==2.16.1
+tokenizers==0.15.0
+
+# Model baholash
+jiwer==3.0.3  # WER (Word Error Rate) hisoblash uchun
+evaluate==0.4.1
+
+# Vizualizatsiya
+matplotlib==3.8.2
+seaborn==0.13.0
+tqdm==4.66.1
+
+# Utilities
+scikit-learn==1.3.2
+pyyaml==6.0.1
+
+# Jupyter notebook (opsional)
+jupyter==1.0.0
+notebook==7.0.6
+
+# IMPORTANT: PyTorch CPU versiyasini o'rnatish uchun:
+# pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu

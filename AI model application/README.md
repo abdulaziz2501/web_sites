@@ -126,9 +126,9 @@ Control Panel → Windows Defender Firewall → Advanced Settings
 
 **Yechim:**
 ```bash
-# Nano model (eng yengil)
+# Nano models (eng yengil)
 # app.py faylida o'zgartiring:
-model = YOLO('yolov8n.pt')
+models = YOLO('yolov8n.pt')
 ```
 
 ---
@@ -248,7 +248,7 @@ model = YOLO('yolov8n.pt').to('cuda')
 
 ### 3. TensorRT Optimizatsiya
 ```bash
-yolo export model=yolov8n.pt format=engine device=0
+yolo export models=yolov8n.pt format=engine device=0
 ```
 
 ---
