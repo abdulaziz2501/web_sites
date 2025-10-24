@@ -18,7 +18,7 @@ CORS(app)  # Telefon browseridan ulanish uchun
 
 # YOLOv8 modelini yuklash
 print("🔄 YOLO modelini yuklash boshlandi...")
-model = YOLO('yolov8n.pt')  # 'n' - nano (eng yengil), 's', 'm', 'l', 'x' ham bor
+model = YOLO('yolo11m.pt')  # 'n' - nano (eng yengil), 's', 'm', 'l', 'x' ham bor
 print("✅ Model muvaffaqiyatli yuklandi!")
 
 
@@ -42,7 +42,7 @@ def home():
     """API ishlayotganini tekshirish"""
     return jsonify({
         "status": "active",
-        "message": "YOLOv8 Detection API ishlayapti!",
+        "message": "YOLO11m Detection API ishlayapti!",
         "server_ip": get_local_ip(),
         "endpoints": {
             "/detect": "POST - Rasm yuborish va detection olish",
@@ -56,7 +56,7 @@ def health():
     """Server sog'ligini tekshirish"""
     return jsonify({
         "status": "healthy",
-        "models": "YOLOv8n",
+        "models": "YOLO11m",
         "ready": True
     })
 
@@ -147,7 +147,7 @@ if __name__ == '__main__':
     port = 5000
     
     print("\n" + "="*60)
-    print("🚀 YOLOv8 Detection Server ishga tushdi!")
+    print("🚀 YOLO11m Detection Server ishga tushdi!")
     print("="*60)
     print(f"📱 Telefonda ochish uchun: http://{local_ip}:{port}")
     print(f"💻 Laptopda ochish uchun: http://localhost:{port}")
